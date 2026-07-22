@@ -12,80 +12,80 @@
 
 ---
 
-## 📌 Giới thiệu (About)
+## 📌 Overview
 
-**Grayscale & Revert** là một plugin mạnh mẽ và mượt mà dành cho Figma, giúp các UI/UX Designer nhanh chóng chuyển đổi giao diện, thành phần thiết kế, hình ảnh và gradient sang chế độ đen trắng (Grayscale) chuẩn độ sáng mắt người (BT.709 sRGB Luminance). 
+**Grayscale & Revert** is a powerful and smooth Figma plugin designed for UI/UX designers, accessibility testing, visual case studies, and fast color workflow operations. It instantly converts design elements, images, layers, and gradients into accurate grayscale based on human visual luminance perception (BT.709 sRGB Luminance).
 
-Đặc biệt, plugin hỗ trợ tính năng **Revert (Khôi phục)** hoàn hảo 100% màu sắc nguyên bản bất kỳ lúc nào nhờ cơ chế lưu trữ dữ liệu an toàn trực tiếp vào `pluginData` của từng node trong Figma.
+Furthermore, it features a 100% **lossless Revert** function that restores original colors at any time by securely storing color states directly inside each node's `pluginData` in Figma.
 
 ---
 
-## ✨ Tính năng nổi bật (Features)
+## ✨ Features
 
-- 🌗 **Chuyển đổi Grayscale chính xác (BT.709 Standard):** Tính toán độ sáng thực tế theo công thức chuẩn sRGB:
+- 🌗 **Accurate Grayscale Conversion (BT.709 Standard):** Computes true human-perceived luminance using the standard sRGB formula:
   $$Y = 0.2126 \times R + 0.7152 \times G + 0.0722 \times B$$
-- 🔄 **Khôi phục màu gốc 100% (Lossless Revert):** Lưu trữ thuộc tính màu nguyên bản vào `pluginData` của node. Khôi phục lại màu ban đầu chỉ với 1 click.
-- 🖼 **Hỗ trợ đầy đủ các loại Element:**
-  - Solid Fills & Text Fills (kể cả Text chứa nhiều màu sắc khác nhau - Mixed fills).
-  - Tất cả các loại Gradient (Linear, Radial, Angular, Diamond).
-  - Strokes (Đường viền) & Shadow Effects (Inner/Drop Shadow).
-  - Hình ảnh (Image fills) với bộ lọc Saturation tự động.
-- ⚡ **Thao tác nhanh từ Quick Menu:** Có sẵn menu lệnh trực tiếp trong Figma mà không bắt buộc phải luôn mở bảng điều khiển (UI Panel).
-- 💎 **Giao diện hiện đại (Modern Glassmorphism UI):** Thiết kế bảng điều khiển tối ưu, tự động tương thích với Dark/Light theme của Figma.
+- 🔄 **100% Lossless Color Revert:** Safely backs up original color properties into node `pluginData`. Restore original colors anytime with a single click.
+- 🖼 **Comprehensive Element Support:**
+  - Solid Fills & Text Fills (including multi-colored range text / mixed fills).
+  - All Gradient types (Linear, Radial, Angular, Diamond).
+  - Strokes & Shadow Effects (Inner Shadow & Drop Shadow).
+  - Image fills with automated saturation filter adjustments.
+- ⚡ **Quick Context Menu Actions:** Run direct commands right from the Figma canvas without keeping the UI panel open.
+- 💎 **Modern Glassmorphism UI:** Clean control panel interface that automatically adapts to Figma's Light and Dark modes.
 
 ---
 
-## 📁 Cấu trúc dự án (Project Structure)
+## 📁 Project Structure
 
 ```text
 Grayscale plugin figma/
-├── manifest.json                  # Cấu hình plugin Figma (Manifest v2)
-├── code.js                        # Logic xử lý backend sandbox của Figma Plugin
-├── ui.html                        # Giao diện người dùng (HTML/CSS/JS)
-├── case_study_process_chart.html  # Sơ đồ quy trình làm việc & Case study
-├── avatar.png                     # Ảnh Đại diện / Logo của plugin (AI Generated)
-├── icon.png                       # Icon chuẩn 128x128 cho Figma Plugin
-└── README.md                      # Tài liệu hướng dẫn sử dụng
+├── manifest.json                  # Figma Plugin configuration (Manifest v2)
+├── code.js                        # Figma Plugin backend sandbox logic
+├── ui.html                        # User interface (HTML/CSS/JS)
+├── case_study_process_chart.html  # Process chart & case study interactive layout
+├── avatar.png                     # Plugin avatar / logo (AI Generated)
+├── icon.png                       # 128x128 icon for Figma Plugin
+└── README.md                      # Documentation & usage guide
 ```
 
 ---
 
-## 🚀 Hướng dẫn cài đặt vào Figma (Installation)
+## 🚀 Installation
 
-1. **Clone dự án về máy:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/quendinao/grayscale-plugin-figma.git
    ```
 
-2. **Mở ứng dụng Figma Desktop App:**
-   - Vào menu: `Plugins` -> `Development` -> `Import plugin from manifest...`
-   - Chọn file `manifest.json` trong thư mục dự án vừa clone.
+2. **Open Figma Desktop App:**
+   - Go to menu: `Plugins` -> `Development` -> `Import plugin from manifest...`
+   - Select the `manifest.json` file inside the cloned repository directory.
 
-3. **Sử dụng Plugin:**
-   - Chuột phải vào canvas hoặc đối tượng chọn trong Figma -> `Plugins` -> `Development` -> `Grayscale & Revert`.
+3. **Run the Plugin:**
+   - Right-click anywhere on the canvas or select layers in Figma -> `Plugins` -> `Development` -> `Grayscale & Revert`.
 
 ---
 
-## 🛠 Hướng dẫn sử dụng (Usage)
+## 🛠 Usage & Commands
 
-| Lệnh (Command) | Mô tả |
+| Command | Description |
 | :--- | :--- |
-| **Open Plugin Panel** | Mở bảng điều khiển giao diện đầy đủ tính năng & thống kê. |
-| **Convert Selection to Grayscale** | Chuyển trực tiếp tất cả các layer đang chọn sang màu đen trắng. |
-| **Revert Selection Colors** | Khôi phục lại màu sắc ban đầu của các layer đang chọn. |
+| **Open Plugin Panel** | Opens the full UI panel with statistics, action triggers, and options. |
+| **Convert Selection to Grayscale** | Instantly converts all selected layers to grayscale without opening the UI. |
+| **Revert Selection Colors** | Restores selected layers back to their original color palette. |
 
 ---
 
-## 🧠 Cơ chế kỹ thuật (Technical Details)
+## 🧠 Technical Architecture
 
-1. **State Preservation (Bảo toàn trạng thái):**
-   Khi thực hiện Grayscale, plugin mã hóa trạng thái màu sắc ban đầu thành chuỗi JSON và ghi vào `node.setPluginData("original-colors", JSON.stringify(data))`. Khi cần Revert, plugin khôi phục chính xác từng mảng Fill, Stroke và Effect.
+1. **State Preservation:**
+   During conversion, original color properties are serialized into JSON and attached to the node via `node.setPluginData("original-colors", JSON.stringify(data))`. Reversion reads this metadata to restore exact paints, gradients, strokes, and drop shadows.
 
-2. **Mixed Text Handling (Xử lý Text đa màu):**
-   Xử lý đặc biệt đối với các khung văn bản có nhiều dải màu (Text Range Fills) để đảm bảo không bị mất style chữ hoặc màu sắc của từng ký tự khi chuyển đổi và khôi phục.
+2. **Mixed Text Range Fills:**
+   Special handling for text nodes with variable character styling ensures no font properties or range fill attributes are lost during grayscale conversion or restoration.
 
 ---
 
-## 📜 Giấy phép (License)
+## 📜 License
 
-Dự án được phân phối dưới giấy phép [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
