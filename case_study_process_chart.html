@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B SaaS 1-Year Product Transformation - Process Block Chart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0B0F19;
+      --bg-card: #151C2C;
+      --bg-card-hover: #1C263B;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(99, 102, 241, 0.4);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --accent-blue: #38BDF8;
+      --accent-indigo: #818CF8;
+      --accent-purple: #C084FC;
+      --accent-emerald: #34D399;
+      --accent-amber: #FBBF24;
+      --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 99px;
+      color: var(--accent-indigo);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Summary Bar */
+    .summary-box {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .summary-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .icon-1 { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+    .icon-2 { background: rgba(129, 140, 248, 0.15); color: var(--accent-indigo); }
+    .icon-3 { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); }
+    .icon-4 { background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); }
+
+    .summary-text h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .summary-text p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Process Flow Diagram */
+    .process-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+    }
+
+    /* Block Card */
+    .process-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 28px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-block:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    .process-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+    }
+
+    .phase-1::before { background: var(--accent-blue); }
+    .phase-2::before { background: var(--accent-indigo); }
+    .phase-3::before { background: var(--accent-purple); }
+    .phase-4::before { background: var(--accent-amber); }
+    .phase-5::before { background: var(--accent-emerald); }
+
+    .block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .phase-num {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .phase-1 .phase-num { background: rgba(56, 189, 248, 0.1); color: var(--accent-blue); }
+    .phase-2 .phase-num { background: rgba(129, 140, 248, 0.1); color: var(--accent-indigo); }
+    .phase-3 .phase-num { background: rgba(192, 132, 252, 0.1); color: var(--accent-purple); }
+    .phase-4 .phase-num { background: rgba(251, 191, 36, 0.1); color: var(--accent-amber); }
+    .phase-5 .phase-num { background: rgba(52, 211, 153, 0.1); color: var(--accent-emerald); }
+
+    .time-tag {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .block-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    /* Content Grid inside Block */
+    .block-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .block-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sub-section {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .sub-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sub-content {
+      font-size: 14px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .bullet-list {
+      list-style-type: none;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    .bullet-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-indigo);
+      font-weight: bold;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Arrow Divider Between Blocks */
+    .arrow-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: -8px 0;
+      z-index: 2;
+    }
+
+    .arrow-icon {
+      width: 32px;
+      height: 32px;
+      background: #1E293B;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-indigo);
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Footer Note */
+    .footer-note {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge-tag">Case Study Process Diagram</div>
+    <h1 class="title">Quy Trình 1 Năm Transformation Cho B2B SaaS App</h1>
+    <p class="subtitle">Sơ đồ khối tóm tắt tư duy chiến lược từ Phân tích, Lập bộ chỉ số, Redesign UI/UX, Tái cấu trúc Onboarding & Pricing Plan đến Đo lường thực tế.</p>
+  </div>
+
+  <!-- Key Mindset Summary -->
+  <div class="summary-box">
+    <div class="summary-item">
+      <div class="summary-icon icon-1">🎯</div>
+      <div class="summary-text">
+        <h4>Tư duy lấy dữ liệu làm mỏ neo</h4>
+        <p>Bắt đầu từ mục tiêu kinh doanh & chỉ số đo lường thay vì thiết kế UI cảm tính.</p>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-icon icon-2">⚡</div>
+      <div class="summary-text">
+        <h4>Đòn bẩy tăng trưởng chính</h4>
+        <p>Tối ưu Luồng Onboarding & Pricing Plan để kích hoạt Conversion Rate nhanh nhất.</p>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-icon icon-3">🎨</div>
+      <div class="summary-text">
+        <h4>Đồng bộ hóa & Chuẩn hóa UI</h4>
+        <p>Redesign toàn bộ giao diện app nhằm giảm thời gian thao tác của người dùng B2B.</p>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-icon icon-4">🔄</div>
+      <div class="summary-text">
+        <h4>Khép kín vòng lặp hiệu quả</h4>
+        <p>Đo lường sản phẩm post-launch để liên tục tối ưu theo dữ liệu thực tế.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Process Blocks -->
+  <div class="process-timeline">
+
+    <!-- Block 1 -->
+    <div class="process-block phase-1">
+      <div class="block-header">
+        <span class="phase-num">Giai đoạn 1</span>
+        <span class="time-tag">Tháng 1 - Tháng 2</span>
+      </div>
+      <h2 class="block-title">Phân Tích Khảo Sát & Lập Kế Hoạch Chiến Lược</h2>
+      <div class="block-grid">
+        <div class="sub-section">
+          <div class="sub-title">💡 Tư duy thực thi</div>
+          <p class="sub-content">Hiểu rõ bài toán kinh doanh, khảo sát người dùng B2B & tìm ra các điểm nghẽn (Pain points) lớn nhất trên app hiện tại.</p>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">📌 Hành động cốt lõi</div>
+          <ul class="bullet-list">
+            <li>User Research & Audit luồng trải nghiệm cũ.</li>
+            <li>Phân tích đối thủ cạnh tranh SaaS.</li>
+            <li>Lập Lộ trình sản phẩm (Product Roadmap 1 năm).</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">⭐ Điểm hay nổi bật</div>
+          <span class="highlight-badge">Xác định đúng bottleneck: Luồng Onboarding phức tạp làm rơi rớt 45% người dùng mới.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-divider"><div class="arrow-icon">↓</div></div>
+
+    <!-- Block 2 -->
+    <div class="process-block phase-2">
+      <div class="block-header">
+        <span class="phase-num">Giai đoạn 2</span>
+        <span class="time-tag">Tháng 3 - Tháng 4</span>
+      </div>
+      <h2 class="block-title">Xây Dựng Bộ Chỉ Số Đo Lường (Metrics Framework)</h2>
+      <div class="block-grid">
+        <div class="sub-section">
+          <div class="sub-title">💡 Tư duy thực thi</div>
+          <p class="sub-content">Mọi cải tiến thiết kế phải gắn liền với chỉ số định lượng cụ thể để đo lường thành công trước & sau khi launch.</p>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">📌 Hành động cốt lõi</div>
+          <ul class="bullet-list">
+            <li>Xác định North Star Metric & OKR thiết kế.</li>
+            <li>Định nghĩa KPIs: Activation Rate, Free-to-Paid %...</li>
+            <li>Cài đặt Tracking Events & Analytics Dashboard.</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">⭐ Điểm hay nổi bật</div>
+          <span class="highlight-badge">Tạo ra "Thước đo chung" giúp Designer, PM và Engineer gắn kết quanh 1 mục tiêu số.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-divider"><div class="arrow-icon">↓</div></div>
+
+    <!-- Block 3 -->
+    <div class="process-block phase-3">
+      <div class="block-header">
+        <span class="phase-num">Giai đoạn 3</span>
+        <span class="time-tag">Tháng 5 - Tháng 8</span>
+      </div>
+      <h2 class="block-title">Redesign Giao Diện Toàn App & Tái Cấu Trúc Pricing Plan</h2>
+      <div class="block-grid">
+        <div class="sub-section">
+          <div class="sub-title">💡 Tư duy thực thi</div>
+          <p class="sub-content">Chuẩn hóa Design System đồng bộ, làm mới giao diện hiện đại & thiết kế lại bảng giá (Pricing) rõ ràng, kích thích nâng cấp.</p>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">📌 Hành động cốt lõi</div>
+          <ul class="bullet-list">
+            <li>Xây dựng B2B UI Design System (Tokens, Components).</li>
+            <li>Redesign giao diện Dashboard & Core Features Workflows.</li>
+            <li>Thiết kế lại Pricing Matrix & Feature Comparison Table.</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">⭐ Điểm hay nổi bật</div>
+          <span class="highlight-badge">Minh bạch hóa khác biệt giữa các gói cước giúp khách hàng ra quyết định mua nhanh hơn.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-divider"><div class="arrow-icon">↓</div></div>
+
+    <!-- Block 4 -->
+    <div class="process-block phase-4">
+      <div class="block-header">
+        <span class="phase-num">Giai đoạn 4</span>
+        <span class="time-tag">Tháng 9 - Tháng 10</span>
+      </div>
+      <h2 class="block-title">Tái Cấu Trúc Luồng Onboarding (Conversion-Driven)</h2>
+      <div class="block-grid">
+        <div class="sub-section">
+          <div class="sub-title">💡 Tư duy thực thi</div>
+          <p class="sub-content">Dẫn dắt người dùng đến khoảnh khắc "Aha Moment" sớm nhất có thể ngay sau khi hoàn tất đăng ký.</p>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">📌 Hành động cốt lõi</div>
+          <ul class="bullet-list">
+            <li>Rút gọn các bước đăng ký từ 7 bước xuống 3 bước.</li>
+            <li>Thiết kế Interactive Checklist & Guided Product Tour.</li>
+            <li>Personalize trải nghiệm theo vai trò người dùng (Role-based).</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">⭐ Điểm hay nổi bật</div>
+          <span class="highlight-badge">Rút ngắn Time-to-Value (TTV), người dùng đạt được giá trị ngay trong 5 phút đầu tiên.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-divider"><div class="arrow-icon">↓</div></div>
+
+    <!-- Block 5 -->
+    <div class="process-block phase-5">
+      <div class="block-header">
+        <span class="phase-num">Giai đoạn 5</span>
+        <span class="time-tag">Tháng 11 - Tháng 12</span>
+      </div>
+      <h2 class="block-title">Đo Lường Hiệu Quả Post-Launch & Tối Ưu Tăng Trưởng</h2>
+      <div class="block-grid">
+        <div class="sub-section">
+          <div class="sub-title">💡 Tư duy thực thi</div>
+          <p class="sub-content">Kiểm chứng các giả định ban đầu bằng dữ liệu thực tế, A/B Testing và phản hồi từ người dùng thực tế.</p>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">📌 Hành động cốt lõi</div>
+          <ul class="bullet-list">
+            <li>Theo dõi Dashboard bộ chỉ số (Activation Rate, Conversion).</li>
+            <li>A/B Testing các phiên bản CTA & Onboarding steps.</li>
+            <li>Tổng kết bài học & đóng gói thành Case Study hoàn chỉnh.</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title">⭐ Điểm hay nổi bật</div>
+          <span class="highlight-badge">Tăng 32% tỷ lệ chuyển đổi Free-to-Paid và giảm 40% tỉ lệ rơi rớt trong luồng Onboarding.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-note">
+    <p>© Case Study Summary Chart • B2B SaaS Product Transformation</p>
+  </div>
+
+</div>
+
+</body>
+</html>
