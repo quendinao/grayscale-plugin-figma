@@ -1,0 +1,31 @@
+{
+  "name": "Grayscale & Revert",
+  "id": "grayscale-revert-plugin",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": [
+    "figma"
+  ],
+  "icon": "icon.png",
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  },
+  "menu": [
+    {
+      "name": "Open Plugin Panel",
+      "command": "open-ui"
+    },
+    {
+      "separator": true
+    },
+    {
+      "name": "Convert Selection to Grayscale",
+      "command": "grayscale-direct"
+    },
+    {
+      "name": "Revert Selection Colors",
+      "command": "revert-direct"
+    }
+  ]
+}
